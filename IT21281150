@@ -1,0 +1,153 @@
+//WeddingPackage.cpp
+
+#include "weddingPackage.h"
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+weddingPackage::weddingPackage()
+{
+	
+}
+
+weddingPackage::weddingPackage(int wcode, const char wName[], double wPrice, const char wDecorations[])
+{
+	wpcode = wcode;
+	strcpy(Decorations, wDecorations);
+	wpPrice = wPrice;
+	strcpy(wpName,wName);
+}
+
+void AddweddingPackageDetails(int wcode, const char wName[], double wPrice, const char wDecorations[])
+{
+	
+}
+
+
+void weddingPackage::updateWeddingPackageDetails()
+{
+}
+
+void weddingPackage::DeleteWeddingPackageDetails()
+{
+}
+
+void weddingPackage::DisplayWeddingPackageDetails()
+{
+	cout << "Wedding Package Code : " << wpcode << endl
+		<< "Wedding Package Name : " << wpName << endl
+		<< "Decoration : " << Decorations << endl
+		<< "Wedding Package Price : " << wpPrice << endl;
+}
+
+weddingPackage::~weddingPackage()
+{
+}
+
+
+
+//weddingPackage.h
+
+
+#include<cstring>
+
+using namespace std;
+
+class weddingPackage
+{
+private:
+
+	int wpcode;
+	char wpName[10];
+	char Decorations[30];
+	double wpPrice;
+
+public:
+	weddingPackage();
+	weddingPackage(int wcode, const char wName[], double wPrice, const char wDecorations[]);
+	void AddweddingPackageDetails(int wcode, const char wName[], double wPrice, const char wDecorations[]);
+	void updateWeddingPackageDetails();
+	void DeleteWeddingPackageDetails();
+	void DisplayWeddingPackageDetails();
+	~weddingPackage();
+
+
+
+
+};
+
+
+
+//FoodPackage.cpp
+
+
+#include "FoodPackage.h"
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+FoodPackage::FoodPackage()
+{
+}
+
+FoodPackage::FoodPackage(int Fcode, const char FName[], double FPrice)
+{
+	FPcode = Fcode;
+	strcpy(FPName, FName);
+	FPPrice = FPrice;
+}
+
+void FoodPackage::AddFoodPackageDetails(int Fcode, const char FName[], double FPrice)
+{
+}
+
+void FoodPackage::updateFoodPackageDetails()
+{
+}
+
+void FoodPackage::DeleteFoodPackageDetails()
+{
+}
+
+void FoodPackage::DisplayFoodPackageDetails()
+{
+	cout << "Food Package Code : " << FPcode << endl
+		<< "Food Package Name : " << FPName << endl
+		<< "Food Package Price : " << FPPrice << endl;
+}
+
+FoodPackage::~FoodPackage()
+{
+}
+
+
+
+//FoodPackage.h
+
+
+
+#include<cstring>
+
+using namespace std;
+
+class FoodPackage
+{
+private:
+
+	int FPcode;
+	char FPName[10];
+	double FPPrice;
+
+public:
+	FoodPackage();
+	FoodPackage(int Fcode, const char FName[], double FPrice);
+	void AddFoodPackageDetails(int Fcode, const char FName[], double FPrice);
+	void updateFoodPackageDetails();
+	void DeleteFoodPackageDetails();
+	void DisplayFoodPackageDetails();
+	~FoodPackage();
+
+
+
+
+};
