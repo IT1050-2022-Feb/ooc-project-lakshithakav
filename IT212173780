@@ -1,0 +1,84 @@
+booking.h
+
+class  booking                   
+{
+private:
+	int bookID;                   
+	char date[10];
+	int cid;
+	char username[8];
+	int hotelID;
+	int hallNO;
+	int WpCode;
+	int Fpcode;
+
+
+public:                   
+	booking();
+	
+	booking(int cbookID, int bcid , const char cusername[], const char cdate[]);
+	void setbookingDetail(int chotelID, int ChallID, int cWpCode, int FpCode);
+	void cancelBooking();
+	void DisplayBookingDetail();
+	~booking();
+};
+
+
+
+Booking.cpp                        
+#include "booking.h"
+#include <iostream>
+#include<cstring>
+using namespace std;
+
+booking::booking()
+{
+	
+}
+
+booking::booking(int cbookID, int bcid, const char cusername[], const char cdate[])
+{
+
+
+	
+		bookID = cbookID;
+		cid = bcid;
+		strcpy(username, cusername);
+		strcpy(date, cdate);
+
+	
+}
+
+
+
+void booking::setbookingDetail(int chotelID, int ChallID, int cWpCode, int cFpCode)
+{
+	chotelID = hotelID;
+	ChallID = hallNO;
+	cWpCode = WpCode;
+	cFpCode = Fpcode;
+
+}
+
+void booking::cancelBooking()
+{
+}
+
+void booking::DisplayBookingDetail()
+{
+	cout << "Booking Details" << endl
+		<< "-----------------------" << endl
+		<< "Booking ID : " << bookID << endl
+		<< "Customer ID : " << cid << endl
+		<< "Customer username : " << username << endl
+		<< "Date : " << date << endl
+		<< "Hotel ID : " << hotelID << endl
+		<< "Hall ID : " << hallNO << endl
+		<< "Wedding Package code : " << WpCode << endl
+		<< "Food package code : " << Fpcode << endl << endl;
+
+
+}
+
+booking::~booking()
+{
