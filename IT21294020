@@ -1,0 +1,93 @@
+// payment.h
+
+class Payment
+{
+	private:
+		int payID;
+		char payType[20];
+		double payAmount;
+	
+	public:
+	    Payment();
+		void setPayment(int pID , const char ppayType[] , double ppayAmount);
+		void checkPayment();
+		void confirmPayment();
+		void displayPaymentDetails();
+		~Payment();	
+};
+
+
+// payment.cpp
+
+
+#include <iostream>
+#include "payment.h"
+#include <cstring>
+using namespace std;
+
+Payment :: Payment()
+{
+	payID = 0;
+	strcpy(payType, "");
+	payAmount = 0;
+	
+}
+
+
+//offers.h
+
+class offers
+{
+private:
+
+	int offerID;
+
+public:
+
+	offers();
+	offers(int oID);
+	void offertype();
+	void displayOfferDetails();
+	~offers();
+
+
+};
+
+// offers.cpp
+
+
+void Payment :: setPayment(int pID , const char ppayType[], double ppayAmount)
+{
+	payID = pID;
+	strcpy(payType , ppayType);
+	payAmount = ppayAmount;
+}
+
+void Payment :: checkPayment()
+
+{	
+}
+
+void Payment :: confirmPayment()
+
+{
+}
+
+void Payment :: displayPaymentDetails()
+
+{
+  cout << "Payment Details" << endl;
+  cout << "---------------" << endl;
+  cout << "payID : " << payID << endl;
+  cout << "Payment Type : " << payType << endl;
+  cout << "Payment Amount : " << payAmount << endl;
+  cout << "---------------" << endl;
+}
+
+Payment :: ~Payment()
+{
+	
+  cout << "Delete Payment Class" << endl;
+}
+ 
+
