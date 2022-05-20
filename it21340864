@@ -1,0 +1,274 @@
+//customer.h
+
+class Customer
+{
+protected:
+
+	char Name[20];
+	int mobile;
+	char email[15];
+	char addres[20];
+	char dob[15];
+
+
+public:
+	Customer();
+	Customer(const char cname[], int cmobile,const char cemail[],const char caddres[],const char cdob[]);
+	void Register();
+	void DisplayDetail();
+	void CheckHotels();
+	void CheckHalls();
+	void CheckWeddingPackages();
+	void CheckFoodPackages();
+	~Customer();
+
+
+};
+
+//customer.cpp
+
+#include "Customer.h"
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+Customer::Customer()
+{
+}
+
+Customer::Customer(const char cname[], int cmobile, const char cemail[], const char caddres[], const char cdob[])
+{
+	strcpy(Name, cname);
+	strcpy(email, cemail);
+	mobile = cmobile;
+	strcpy(addres, caddres);
+	strcpy(dob, cdob);
+}
+
+void Customer::Register()
+{
+}
+
+
+void Customer::DisplayDetail()
+{
+	cout<<"Customer Detail"<<endl
+		<<"--------------------------"<<endl
+		<< "Customer Name : " << Name << endl
+		<< "Email : " << email << endl
+		<< "Mobile No : " << mobile << endl
+		<< "addres :" << addres << endl
+		<< "Date Of Birth" << dob << endl<<endl;
+}
+
+void Customer::CheckHotels()
+{
+}
+
+void Customer::CheckHalls()
+{
+}
+
+void Customer::CheckWeddingPackages()
+{
+}
+
+void Customer::CheckFoodPackages()
+{
+}
+
+Customer::~Customer()
+{
+}
+
+
+//RegisteredCustomer.h
+
+class RegisteredCustomer : public Customer
+{
+private:
+	int cid;
+	char username[10];
+	char password[8];
+	
+
+public:
+	RegisteredCustomer();
+	RegisteredCustomer(int custid, const char cusername[]);
+	void setPersonalDetails(const char cname[],const char cemail[], int cmobile, const char caddres[], const char cdob[]);
+	void DisplayDetails();
+	void SelectHotel();
+	void SelectHall();
+	void SelectWeddingPackage();
+	void SelectFoodPackage();
+	void MakePayment();
+	void logout();
+	~RegisteredCustomer();
+};
+
+//RegisteredCustomer.cpp
+
+
+#include "Customer.h"
+#include "RegisteredCustomer.h"
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+RegisteredCustomer::RegisteredCustomer()
+{
+	cid = 0;
+	strcpy(username, "");
+}
+
+RegisteredCustomer::RegisteredCustomer(int custid, const char cusername[]):Customer(Name,mobile,email,addres,dob)
+{
+	cid = custid;
+	strcpy(username, cusername);
+}
+
+void RegisteredCustomer::setPersonalDetails(const char cname[],const char cemail[], int cmobile, const char caddres[], const char cdob[])
+{
+	strcpy(Name, cname);
+	strcpy(email, cemail);
+	mobile = cmobile;
+	strcpy(dob, cdob);
+	strcpy(addres, caddres);
+}
+
+void RegisteredCustomer::DisplayDetails()
+{
+	cout << "Registered Customer Detail" << endl
+		<< "--------------------------"<<endl
+		<< "Registered Customer ID : " << cid << endl
+		<< "Username : " << username << endl
+		<<"Name : "<<Name<<endl
+		<<"Email : "<<email<<endl
+		<< "Mobile No:" << mobile << endl
+		<< "Addres : " << addres << endl
+		<< "Date Of Birth : " << dob << endl<<endl;
+}
+
+void RegisteredCustomer::SelectHotel()
+{
+}
+
+void RegisteredCustomer::SelectHall()
+{
+}
+
+void RegisteredCustomer::SelectWeddingPackage()
+{
+}
+
+void RegisteredCustomer::SelectFoodPackage()
+{
+}
+
+void RegisteredCustomer::MakePayment()
+{
+}
+
+void RegisteredCustomer::logout()
+{
+}
+
+RegisteredCustomer::~RegisteredCustomer()
+{
+	
+}
+
+
+//main.cpp
+
+
+#include "Customer.h"
+#include "RegisteredCustomer.h"
+#include "weddingPackage.h"
+#include "FoodPackage.h"
+#include "payment.h"
+#include "offers.h"
+#include "booking.h"
+#include <iostream>
+#include<cstring>
+using namespace std;
+
+int main()
+
+{
+	//customer
+	Customer* c1;
+	c1 = new Customer("Ranajan",776585487,"ranjan@gmail.com","Kesbew","1996-06-23");
+
+	c1->DisplayDetail();
+
+	//Registered customer
+	RegisteredCustomer* rc1;
+	
+
+	rc1 = new RegisteredCustomer(01, "SamanP");
+	
+	rc1->setPersonalDetails("Saman Perera","saman@gmail.com", 778596489, "Dehiwala", "1986-05-25");
+	
+	rc1->DisplayDetails();
+	
+
+
+	//Wedding package
+	weddingPackage* wp1;
+
+	wp1 = new weddingPackage(333001,"classic", 800000,"white and blue theme");
+
+	wp1->DisplayWeddingPackageDetails();
+
+
+
+	//Food Package
+	FoodPackage* fp1;
+
+	fp1 = new FoodPackage(989001, "Silver", 2500);
+
+	fp1->DisplayFoodPackageDetails();
+
+
+	//Payment
+	Payment* py1;
+
+	py1 = new Payment();
+
+	py1->setPayment(21, "Cash", 1000);
+	py1->displayPaymentDetails();
+
+
+	//Offers
+	offers* of1;
+
+	of1 = new offers(001);
+
+	of1->displayOfferDetails();
+
+	//booking
+	booking* book1;
+
+	book1 = new booking(100, 2, "SamanP", "2022-05-21");
+	book1->setbookingDetail(8801, 05, 4532, 1245);
+
+	book1->DisplayBookingDetail();
+
+	
+	
+
+
+
+	
+
+
+	delete c1,rc1,wp1,fp1,of1,book1;
+
+	
+	return 0;
+}
+
+
+
+
